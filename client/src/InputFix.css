@@ -1,0 +1,77 @@
+/* EMERGENCY INPUT FIX - ONLY FOR INPUT VISIBILITY */
+
+/* Only disable transitions on inputs to prevent interference */
+input,
+textarea,
+select {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Force input text to be visible - Light mode */
+input,
+textarea,
+select {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  border: 2px solid #4f46e5 !important;
+  padding: 10px !important;
+  font-size: 16px !important;
+  font-family: Arial, sans-serif !important;
+}
+
+/* Force input text to be visible - Dark mode */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  border: 2px solid #818cf8 !important;
+}
+
+/* Force placeholder to be visible */
+input::placeholder,
+textarea::placeholder {
+  color: #999999 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+/* Force caret/cursor to be visible */
+input,
+textarea {
+  caret-color: #000000 !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  caret-color: #ffffff !important;
+}
+
+/* Override any webkit autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+[data-theme="dark"] input:-webkit-autofill,
+[data-theme="dark"] input:-webkit-autofill:hover,
+[data-theme="dark"] input:-webkit-autofill:focus,
+[data-theme="dark"] textarea:-webkit-autofill,
+[data-theme="dark"] textarea:-webkit-autofill:hover,
+[data-theme="dark"] textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1e293b inset !important;
+  box-shadow: 0 0 0px 1000px #1e293b inset !important;
+}

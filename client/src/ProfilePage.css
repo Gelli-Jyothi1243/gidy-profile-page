@@ -1,0 +1,1412 @@
+/* Global Styles */
+:root[data-theme="light"] {
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f9fafb;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  --border-color: #e0e0e0;
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --gradient-start: #eef2ff;
+  --gradient-end: #f9fafb;
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border-color: #475569;
+  --accent-color: #818cf8;
+  --accent-hover: #6366f1;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --gradient-start: #1e293b;
+  --gradient-end: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+}
+
+/* Gidy Header */
+.gidy-header {
+  background: var(--bg-secondary);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.gidy-logo {
+  height: 48px;
+  width: auto;
+}
+
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--accent-color);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.15) rotate(15deg);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.5);
+  background: var(--accent-hover);
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #4f46e5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Profile Header Card */
+.profile-header-card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 40px auto 24px;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  position: relative;
+}
+
+.profile-header-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-avatar-section {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f0f0f0;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.profile-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.profile-tag {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.profile-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.contact-item svg {
+  color: var(--accent-color);
+}
+
+.contact-item a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.profile-social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.social-link-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid var(--border-color);
+}
+
+.social-link-inline:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Edit Controls */
+.edit-controls {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.btn-edit, .btn-save, .btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-edit {
+  background: #4f46e5;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #4338ca;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-save {
+  background: #10b981;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #059669;
+}
+
+.btn-cancel {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background: #dc2626;
+}
+
+/* Section Card */
+.section-card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 0 auto 24px;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-add-item {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-add-item:hover {
+  background: var(--accent-hover);
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+/* Bio Section */
+.bio-text {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Career Vision Card */
+.career-vision-card {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 0 auto 24px;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.career-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.career-icon {
+  color: #fbbf24;
+}
+
+.career-header h2 {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.career-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.career-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.career-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Timeline */
+.timeline-container {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 0 auto 24px;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #4f46e5, #10b981, #f59e0b);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 32px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.education-marker {
+  background: #4f46e5;
+}
+
+.timeline-content {
+  background: var(--bg-tertiary);
+  padding: 16px;
+  border-radius: 12px;
+  border-left: 3px solid var(--border-color);
+}
+
+.timeline-date {
+  display: inline-block;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 0;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.timeline-institution {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.timeline-score {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Content Grid - Clean Two Column Layout */
+.content-grid {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Skills takes full width */
+.skills-section {
+  width: 100%;
+}
+
+/* Two column wrapper */
+.two-column-wrapper {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+.column-left,
+.column-right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+/* Individual sections */
+.experience-section,
+.projects-section,
+.certifications-section,
+.extracurricular-section {
+  width: 100%;
+  margin: 0 !important;
+}
+
+/* Edit Inputs - ABSOLUTE COLORS ONLY */
+.edit-input, .edit-input-large, .edit-input-inline {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+[data-theme="dark"] .edit-input,
+[data-theme="dark"] .edit-input-large,
+[data-theme="dark"] .edit-input-inline {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.edit-input:focus, .edit-input-large:focus, .edit-input-inline:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  transform: translateY(-1px);
+}
+
+.edit-input-title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .edit-input-title {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.edit-input-title:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  transform: translateY(-1px);
+}
+
+.edit-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .edit-textarea {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.edit-textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Edit Card - For New Items */
+.edit-card {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 2px solid var(--accent-color);
+  border-radius: 16px;
+  padding: 20px;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.edit-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-confirm {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-confirm:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+.btn-delete {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+/* Display Card - For Existing Items */
+.display-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.display-card:hover {
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.card-header-with-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.display-card:hover .card-actions {
+  opacity: 1;
+}
+
+.btn-edit-small,
+.btn-delete-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-edit-small {
+  background: var(--accent-color);
+  color: white;
+}
+
+.btn-edit-small:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.btn-delete-small {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-delete-small:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+.display-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.display-card .company,
+.display-card .issuer,
+.display-card .tech-stack {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.display-card .duration,
+.display-card .year {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.display-card .description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Empty Hint */
+.empty-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Skills Display with Level Badges */
+.skills-display-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-badge-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.skill-badge-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  transition: all 0.2s;
+}
+
+.skill-badge-container:hover .skill-badge-display {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--card-shadow);
+  padding-right: 8px;
+}
+
+.skill-badge-display .skill-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skill-badge-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-left: 4px;
+}
+
+.skill-badge-container:hover .skill-badge-actions {
+  opacity: 1;
+}
+
+.btn-edit-tiny,
+.btn-delete-tiny {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-edit-tiny {
+  background: var(--accent-color);
+  color: white;
+}
+
+.btn-edit-tiny:hover {
+  background: var(--accent-hover);
+  transform: scale(1.1);
+}
+
+.btn-delete-tiny {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-delete-tiny:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.skill-level-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.skill-level-badge.beginner {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.skill-level-badge.intermediate {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.skill-level-badge.advanced {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.skill-level-badge.expert {
+  background: #e9d5ff;
+  color: #6b21a8;
+}
+
+/* Skill Edit Card */
+.skill-edit-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 2px solid var(--accent-color);
+  border-radius: 28px;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.2);
+}
+
+.skill-edit-input {
+  width: 150px;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .skill-edit-input {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.skill-edit-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.skill-edit-select {
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .skill-edit-select {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.skill-edit-select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.skill-edit-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.skill-edit-actions .btn-confirm,
+.skill-edit-actions .btn-delete {
+  width: 28px;
+  height: 28px;
+}
+
+/* Content Items */
+.content-item {
+  margin-bottom: 16px;
+}
+
+.content-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gidy-header {
+    padding: 12px 16px;
+  }
+
+  .profile-header-card {
+    margin: 20px 12px;
+    padding: 20px;
+  }
+
+  .profile-header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .edit-controls {
+    position: static;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .two-column-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+  }
+
+  .timeline-marker {
+    left: 0;
+  }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
+  .career-title {
+    font-size: 22px;
+  }
+
+  .section-card {
+    margin: 0 12px 20px;
+  }
+
+  .career-vision-card {
+    margin: 0 12px 20px;
+  }
+
+  .timeline-container {
+    margin: 0 12px 20px;
+  }
+}
+
+/* CRITICAL: Force visible input text - Override ALL conflicting styles */
+input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select,
+.edit-input,
+.edit-input-large,
+.edit-input-inline,
+.edit-input-title,
+.edit-textarea,
+.skill-edit-input,
+.skill-edit-select,
+input:focus,
+textarea:focus,
+select:focus,
+input:active,
+textarea:active,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] .edit-input,
+[data-theme="dark"] .edit-input-large,
+[data-theme="dark"] .edit-input-inline,
+[data-theme="dark"] .edit-input-title,
+[data-theme="dark"] .edit-textarea,
+[data-theme="dark"] .skill-edit-input,
+[data-theme="dark"] .skill-edit-select,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] input:active,
+[data-theme="dark"] textarea:active,
+[data-theme="dark"] input:-webkit-autofill,
+[data-theme="dark"] input:-webkit-autofill:hover,
+[data-theme="dark"] input:-webkit-autofill:focus,
+[data-theme="dark"] input:-webkit-autofill:active {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Make edit cards more attractive */
+.edit-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 2px solid #4f46e5;
+  border-radius: 16px;
+  padding: 24px;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .edit-card {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border: 2px solid #818cf8;
+}
+
+.edit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #10b981, #f59e0b);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Make display cards more attractive */
+.display-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .display-card {
+  background: #1e293b;
+  border: 1px solid #475569;
+}
+
+.display-card:hover {
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15);
+  transform: translateY(-4px);
+  border-color: #4f46e5;
+}
+
+/* Make buttons more attractive */
+.btn-add-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.btn-add-item:hover {
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  transform: scale(1.2) rotate(90deg);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+}
+
+/* Make section cards more attractive */
+.section-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  margin: 0 auto 24px;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s;
+}
+
+[data-theme="dark"] .section-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.section-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Make skill badges more attractive */
+.skill-badge-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ffffff, #f9fafb);
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .skill-badge-display {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 2px solid #475569;
+}
+
+.skill-badge-container:hover .skill-badge-display {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.2);
+  border-color: #4f46e5;
+  padding-right: 12px;
+}
+
+/* Make timeline more attractive */
+.timeline-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  border-left: 4px solid #4f46e5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+[data-theme="dark"] .timeline-content {
+  background: #1e293b;
+  border-left: 4px solid #818cf8;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.15);
+  transform: translateX(4px);
+}
+
+/* Add glow effect to focused inputs */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+/* Add placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 0.7;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Smooth typing animation */
+input:focus,
+textarea:focus {
+  animation: inputFocus 0.3s ease;
+}
+
+@keyframes inputFocus {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Add ripple effect on button clicks */
+.btn-add-item:active,
+.btn-confirm:active,
+.btn-delete:active,
+.btn-edit-small:active,
+.btn-delete-small:active {
+  animation: ripple 0.4s ease;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Removed shine effect - was causing visual glitches */
+
+/* Removed pulse animation - was too distracting */
+
+/* Removed gradient text - was causing readability issues */
+
+/* Add loading state for inputs */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Better focus ring */
+*:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+
+/* ============================================
+   CRITICAL FIX: Force input text visibility
+   This MUST be at the end to override everything
+   ============================================ */
+
+/* Light mode - BLACK text on WHITE background */
+input,
+input[type="text"],
+input[type="email"],
+textarea,
+select,
+input:focus,
+textarea:focus,
+select:focus,
+input:active,
+textarea:active,
+select:active {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000 !important;
+}
+
+/* Dark mode - WHITE text on DARK background */
+[data-theme="dark"] input,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] input:active,
+[data-theme="dark"] textarea:active,
+[data-theme="dark"] select:active {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+}
+
+/* Force for all custom input classes */
+.edit-input,
+.edit-input-large,
+.edit-input-inline,
+.edit-input-title,
+.edit-textarea,
+.skill-edit-input,
+.skill-edit-select {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+[data-theme="dark"] .edit-input,
+[data-theme="dark"] .edit-input-large,
+[data-theme="dark"] .edit-input-inline,
+[data-theme="dark"] .edit-input-title,
+[data-theme="dark"] .edit-textarea,
+[data-theme="dark"] .skill-edit-input,
+[data-theme="dark"] .skill-edit-select {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Override any browser autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+[data-theme="dark"] input:-webkit-autofill,
+[data-theme="dark"] input:-webkit-autofill:hover,
+[data-theme="dark"] input:-webkit-autofill:focus,
+[data-theme="dark"] input:-webkit-autofill:active,
+[data-theme="dark"] textarea:-webkit-autofill,
+[data-theme="dark"] textarea:-webkit-autofill:hover,
+[data-theme="dark"] textarea:-webkit-autofill:focus,
+[data-theme="dark"] textarea:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1e293b inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* TEST: If you see a red border, CSS is loading correctly */
+input:focus,
+textarea:focus {
+  border: 3px solid red !important;
+}
