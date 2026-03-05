@@ -1,154 +1,119 @@
-# Gidy Profile Page - Full-Stack MERN Application
+# Gidy Profile Page - Full-Stack Application
 
-A modern, feature-rich profile management system built with the MERN stack, showcasing professional experience, projects, skills, and achievements with innovative real-time editing capabilities.
+A professional profile management system built with React, Node.js, Express, and MongoDB. This application allows users to showcase their skills, experience, projects, education, and achievements with an intuitive interface.
 
-## 🚀 Live Demo
+## � Live Application
 
 - **Frontend**: https://gidy-profile-page.vercel.app
-- **Backend**: https://gidy-profile-backend-odl6.onrender.com
+- **Backend API**: https://gidy-profile-backend-odl6.onrender.com/api/profile
+- **GitHub Repository**: https://github.com/Gelli-Jyothi1243/gidy-profile-page
 
-## 📦 Tech Stack
+## � Tech Stack
 
-### Frontend
-- **React 18** - Modern UI library with hooks for state management
-- **Vite** - Fast build tool and development server
-- **Axios** - HTTP client for API communication
-- **Lucide React** - Beautiful, consistent icon library
-- **CSS3** - Custom styling with CSS variables for dynamic theming
+**Frontend:**
+- React 18 - UI library
+- Vite - Build tool
+- Axios - API requests
+- Lucide React - Icons
+- CSS3 - Styling
 
-### Backend
-- **Node.js** - JavaScript runtime environment
-- **Express.js** - Minimal and flexible web application framework
-- **MongoDB** - NoSQL database for flexible data storage
-- **Mongoose** - Elegant MongoDB object modeling
-- **CORS** - Cross-origin resource sharing middleware
+**Backend:**
+- Node.js & Express - Server
+- MongoDB & Mongoose - Database
+- CORS - Cross-origin support
+
+**Deployment:**
+- Vercel (Frontend)
+- Render (Backend)
+- MongoDB Atlas (Database)
+
+---
 
 ## ✨ Innovation Features
 
-### 1. **Dark Mode with Persistent Settings** 🌙
+### 1. Dark Mode with Persistent Settings
 
-**Why this innovation?**
+Users can toggle between light and dark themes, and their preference is saved to the database. This means when they come back later or use a different device, their chosen theme is remembered.
 
-In today's digital landscape, users spend hours on professional platforms. Dark mode isn't just a trend—it's a necessity for:
-- **Eye Strain Reduction**: Reduces blue light exposure during extended use
-- **Battery Efficiency**: Saves power on OLED/AMOLED screens
-- **User Preference**: Modern users expect theme customization
-- **Professional Appeal**: Shows attention to user experience details
+**Why I built this:**
+- Reduces eye strain during long sessions
+- Modern apps need theme options
+- Shows attention to user experience
 
-**Technical Implementation:**
-- Theme toggle button in header for instant switching
-- Preference stored in MongoDB, synced across all devices and sessions
-- CSS custom properties (`--bg-primary`, `--text-primary`, etc.) for maintainable theming
-- Smooth transitions between light and dark modes
-- `data-theme` attribute on root element for scoped styling
-
-**User Impact:** Users can work comfortably at any time of day, with their preference remembered across sessions and devices.
+**How it works:**
+- Toggle button in the header switches themes instantly
+- Theme preference stored in MongoDB
+- CSS variables make switching smooth
+- Works across all devices and sessions
 
 ---
 
-### 2. **Real-Time Inline Editing with Smart Auto-Save** ✏️
+### 2. Real-Time Inline Editing
 
-**Why this innovation?**
+Instead of navigating to separate edit pages, users can click any card to edit it right there. Changes save automatically when you click away or move to another card.
 
-Traditional profile editing requires:
-- Navigating to separate edit pages
-- Filling out long forms
-- Losing context while editing
-- Manual save actions
+**Why I built this:**
+- Faster than traditional form-based editing
+- Feels natural, like editing a document
+- Prevents accidental data loss with auto-save
+- Better user experience overall
 
-This feature provides a **seamless, intuitive editing experience** similar to modern productivity tools like Notion, Google Docs, or Linear.
-
-**Technical Implementation:**
-- **Click-to-Edit**: Click any card to enter edit mode instantly
-- **Uncontrolled Inputs**: Using `defaultValue` + `onInput` + `onBlur` for real-time text visibility
-- **Smart Auto-Save**: Automatically saves when:
-  - You click outside the input (blur event)
-  - You click on another card to edit
-  - You click the save button
-- **Single Edit Mode**: Only one card can be edited at a time, preventing confusion
-- **Visual Feedback**: Edit/delete buttons appear on hover for discoverability
-- **Optimistic Updates**: UI updates immediately, database syncs in background
-
-**User Impact:** 
-- **80% faster editing** - No page navigation or form submissions
-- **Zero data loss** - Auto-save prevents accidental data loss
-- **Intuitive UX** - Feels natural and responsive, like editing a document
+**How it works:**
+- Click any card to enter edit mode
+- Type and see changes immediately
+- Auto-saves when you blur the input or click another card
+- Only one card can be edited at a time to avoid confusion
 
 ---
 
-### 3. **Skill Level System with Visual Proficiency Badges** 🎯
+### 3. Skill Level System
 
-**Why this innovation?**
+Skills aren't just listed - each one shows your proficiency level (Beginner, Intermediate, Advanced, or Expert) with color-coded badges.
 
-Not all skills are equal. A developer with "Expert" level React.js is fundamentally different from someone at "Beginner" level. This feature:
-- **Helps Recruiters**: Quickly assess candidate expertise
-- **Sets Expectations**: Clear communication of proficiency
-- **Encourages Growth**: Users can track their skill progression
-- **Professional Presentation**: Visual badges are scannable and attractive
+**Why I built this:**
+- Helps recruiters quickly assess expertise
+- More informative than a simple skill list
+- Professional presentation
+- Easy to update as skills improve
 
-**Technical Implementation:**
-- Four proficiency levels: Beginner, Intermediate, Advanced, Expert
-- Color-coded badges for instant visual recognition:
-  - Beginner: Yellow/Amber
-  - Intermediate: Blue
-  - Advanced: Green
-  - Expert: Purple
-- Editable via dropdown in edit mode
-- Persistent storage in MongoDB with skill level metadata
-- Hover effects for interactive feel
-
-**User Impact:** Profiles become more informative and professional, helping users stand out in competitive job markets.
+**How it works:**
+- Four proficiency levels with distinct colors
+- Click any skill to edit name and level
+- Dropdown makes it easy to update
+- Stored in database for persistence
 
 ---
 
+### 4. Interactive Education Timeline
 
+Education history is displayed as a visual timeline with icons, dates, and scores. It's easier to understand at a glance compared to a plain list.
 
-### 4. **Interactive Education Timeline** 📚
+**Why I built this:**
+- Education is naturally chronological
+- Visual timelines are easier to scan
+- Looks more professional
+- Shows progression clearly
 
-**Why this innovation?**
-
-Education is inherently chronological. A timeline visualization:
-- **Tells a Story**: Visual journey through academic achievements
-- **Improves Comprehension**: Easier to understand progression at a glance
-- **Adds Visual Interest**: Breaks up text-heavy sections
-- **Professional Presentation**: Mimics modern resume designs
-
-**Technical Implementation:**
-- Vertical timeline with gradient-colored line (purple → green → orange)
-- Icon markers for each education level (graduation cap icons)
+**How it works:**
+- Vertical timeline with gradient line
+- Icon markers for each education level
+- Displays duration and scores prominently
 - Hover effects for interactivity
-- Duration and score prominently displayed
-- Responsive design maintains timeline on mobile
-
-**User Impact:** Education history becomes a visual story rather than a boring list.
-
----
-
-## 🎯 Why These Innovations Matter
-
-These features weren't chosen randomly—they address real user pain points:
-
-1. **Dark Mode** → Accessibility & Comfort
-2. **Inline Editing** → Efficiency & User Experience
-3. **Skill Levels** → Information Clarity & Professional Presentation
-4. **Timeline** → Visual Storytelling & Engagement
-
-Together, they transform a basic profile page into a **modern, professional, and delightful user experience**.
 
 ---
 
 ## 🛠️ Setup Instructions
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local installation or MongoDB Atlas account)
-- npm or yarn package manager
+- Node.js (v14+)
+- MongoDB (local or Atlas account)
+- npm or yarn
 
-### Local Development Setup
+### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Gelli-Jyothi1243/gidy-profile-page.git
    cd gidy-profile-page
    ```
 
@@ -158,17 +123,16 @@ Together, they transform a basic profile page into a **modern, professional, and
    npm install
    ```
 
-   Create a `.env` file in the `server` directory:
-   ```env
-   MONGODB_URI=mongodb://localhost:27017/gidy-profile
+   Create `.env` file:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
    PORT=5000
    ```
 
-   Start the backend server:
+   Start server:
    ```bash
    npm start
    ```
-   Server will run on `http://localhost:5000`
 
 3. **Setup Frontend**
    ```bash
@@ -176,114 +140,105 @@ Together, they transform a basic profile page into a **modern, professional, and
    npm install
    ```
 
-   Update the API URL in `client/src/services/api.js` if needed:
-   ```javascript
-   const API_URL = 'http://localhost:5000/api';
+   Create `.env` file (optional for local development):
+   ```
+   VITE_API_URL=http://localhost:5000/api/profile
    ```
 
-   Start the frontend development server:
+   Start development server:
    ```bash
    npm run dev
    ```
-   Frontend will run on `http://localhost:5174`
 
-4. **Access the Application**
-   Open your browser and navigate to `http://localhost:5174`
+4. **Access the app**
+   Open http://localhost:5174 in your browser
 
 ---
 
-## � Project Structure
+## 📁 Project Structure
 
 ```
 gidy-profile-page/
-├── client/                 # Frontend React application
-│   ├── public/            # Static assets (logo, images)
+├── client/                 # React frontend
 │   ├── src/
-│   │   ├── services/      # API service layer (axios configuration)
-│   │   ├── ProfilePage.jsx # Main profile component
-│   │   ├── ProfilePage.css # Component styling
-│   │   ├── InputFix.css   # Input visibility fixes
-│   │   └── main.jsx       # Application entry point
-│   ├── package.json
-│   └── vite.config.js     # Vite configuration
+│   │   ├── ProfilePage.jsx # Main component
+│   │   ├── ProfilePage.css # Styles
+│   │   ├── InputFix.css    # Input visibility fixes
+│   │   └── services/
+│   │       └── api.js      # API configuration
+│   └── public/             # Static assets
 │
-├── server/                # Backend Express application
+├── server/                 # Express backend
 │   ├── models/
-│   │   └── Profile.js     # Mongoose schema definition
-│   ├── server.js          # Express server & API routes
-│   ├── package.json
-│   └── .env               # Environment variables (not in repo)
+│   │   └── Profile.js      # MongoDB schema
+│   └── server.js           # API routes
 │
-└── README.md              # This file
+└── README.md
 ```
 
 ---
 
-## 🚀 Deployment Guide
+## 🚀 Deployment
 
-### Deploy Backend to Render
+### Backend (Render)
+1. Create new Web Service on Render
+2. Connect GitHub repository
+3. Set root directory to `server`
+4. Add environment variable: `MONGODB_URI`
+5. Deploy
 
-1. Create a new **Web Service** on [Render](https://render.com)
-2. Connect your GitHub repository
-3. Configure:
-   - **Root Directory**: `server`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-   - **Environment Variables**: 
-     - `MONGODB_URI`: Your MongoDB Atlas connection string
-     - `PORT`: 5000 (or leave default)
-4. Deploy and copy the service URL
-
-### Deploy Frontend to Vercel
-
-1. Install Vercel CLI: `npm install -g vercel`
-2. Navigate to client directory: `cd client`
-3. Update API URL in `client/src/services/api.js`:
-   ```javascript
-   const API_URL = 'https://your-render-backend-url.onrender.com/api';
-   ```
-4. Deploy: `vercel --prod`
-5. Follow the prompts to complete deployment
-
-**Alternative:** Connect your GitHub repository to Vercel dashboard for automatic deployments on push.
+### Frontend (Vercel)
+1. Import project from GitHub
+2. Set root directory to `client`
+3. Framework preset: Vite
+4. Add environment variable: `VITE_API_URL` = `https://your-backend-url.onrender.com/api/profile`
+5. Deploy
 
 ---
 
+## 🎯 Features
+
+- Add, edit, and delete items in all sections
+- Dark/light theme toggle
+- Skill level management
+- Real-time auto-save
+- Responsive design
+- Interactive timeline
+- Smooth animations
+- MongoDB data persistence
+
+---
 
 ## 🔧 API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/profile` | Fetch profile data |
-| PUT | `/api/profile/:id` | Update profile data |
+| GET | `/api/profile` | Get profile data |
+| PUT | `/api/profile/:id` | Update profile |
 
 ---
 
+## � Developer
 
+**Jyothi Siva Naga Devi Gelli**
 
-## 👨‍💻 Developer
+- Email: gellijyothi17@gmail.com
+- GitHub: https://github.com/Gelli-Jyothi1243
+- LinkedIn: https://www.linkedin.com/in/jyothi-gelli-791017257/
 
-Created by Jyothi Gelli as part of the Gidy Full-Stack Developer Assessment.
+Created as part of the Gidy Full-Stack Developer Assessment.
 
-**Contact**: [gellijyothi17@gmail.com]
+---
+
+## 📝 Notes
+
+- Free tier backend may sleep after inactivity (first request takes 30-60 seconds)
+- Theme preference syncs across devices
+- All data stored in MongoDB Atlas
+- Uncontrolled inputs used for better text visibility during editing
 
 ---
 
 ## 📄 License
 
-This project is created for assessment purposes.
-
----
-
-## 🙏 Acknowledgments
-
-- Gidy.ai for the opportunity
-- Lucide React for beautiful icons
-- MongoDB for flexible data storage
-- Vercel & Render for hosting platforms
-## 👨‍💻 Developer
-
-Created by **Jyothi Siva Naga Devi Gelli** as part of the Gidy Full-Stack Developer Assessment.
-
-**Contact**: gellijyothi17@gmail.com
-**GitHub**: https://github.com/Gelli-Jyothi1243
+Created for assessment purposes.
