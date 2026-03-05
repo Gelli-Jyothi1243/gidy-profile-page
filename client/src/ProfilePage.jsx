@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+import API from "./services/api"
 import {
   Mail,
   MapPin,
@@ -29,7 +29,7 @@ export default function ProfilePage() {
   const [editingItemId, setEditingItemId] = useState(null) // Track which item is being edited (format: "arrayName-index")
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/profile")
+    API.get("/api/profile")
       .then(res => {
         setProfile(res.data)
         setEditedProfile(res.data)
@@ -38,6 +38,9 @@ export default function ProfilePage() {
           setTheme(res.data.themePreference)
           document.documentElement.setAttribute('data-theme', res.data.themePreference)
         }
+      })
+      .catch(err => {
+        console.error("Failed to load profile:", err)
       })
   }, [])
 
@@ -49,7 +52,7 @@ export default function ProfilePage() {
     // Save theme preference
     try {
       const updatedProfile = { ...profile, themePreference: newTheme }
-      await axios.put(`http://localhost:5000/api/profile/${profile._id}`, updatedProfile)
+      await API.put(`/api/profile/${profile._id}`, updatedProfile)
       setProfile(updatedProfile)
     } catch (error) {
       console.error('Failed to save theme preference')
@@ -63,7 +66,7 @@ export default function ProfilePage() {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/profile/${profile._id}`, editedProfile)
+      const res = await API.put(`/api/profile/${profile._id}`, editedProfile)
       setProfile(res.data)
       setIsEditing(false)
       alert("Profile updated successfully!")
@@ -193,7 +196,7 @@ export default function ProfilePage() {
         }
       })
       
-      const res = await axios.put(`http://localhost:5000/api/profile/${profile._id}`, cleanProfile)
+      const res = await API.put(`/api/profile/${profile._id}`, cleanProfile)
       setProfile(res.data)
       setEditedProfile(res.data)
     } catch (error) {
