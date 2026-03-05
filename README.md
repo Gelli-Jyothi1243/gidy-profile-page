@@ -125,7 +125,7 @@ Education history is displayed as a visual timeline with icons, dates, and score
 
    Create `.env` file:
    ```
-   MONGODB_URI=your_mongodb_connection_string
+   MONGODB_URI=mongodb+srv://gellijyothi2005:Chintu99088@cluster10.neqdo.mongodb.net/profileDB?retryWrites=true&w=majority
    PORT=5000
    ```
 
@@ -191,7 +191,7 @@ gidy-profile-page/
 1. Import project from GitHub
 2. Set root directory to `client`
 3. Framework preset: Vite
-4. Add environment variable: `VITE_API_URL` = `https://your-backend-url.onrender.com/api/profile`
+4. Add environment variable: `VITE_API_URL` = `https://gidy-profile-backend-odl6.onrender.com`
 5. Deploy
 
 ---
