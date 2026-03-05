@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// Use environment variable for production, fallback to production URL
-const API_URL = import.meta.env.VITE_API_URL || "https://gidy-profile-backend-odl6.onrender.com/api/profile";
+// Production backend URL
+const API_URL = "https://gidy-profile-backend-odl6.onrender.com/api/profile";
 
 const API = axios.create({
   baseURL: API_URL
