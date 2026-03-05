@@ -232,7 +232,7 @@ Created as part of the Gidy Full-Stack Developer Assessment.
 
 ## 📝 Notes
 
-- Free tier backend may sleep after inactivity (first request takes 30-60 seconds)
+- **First Load**: The backend (Render free tier) may take 30-60 seconds to wake up on the first request. After that, it responds instantly. If you see "Loading profile..." for more than a minute, please refresh the page.
 - Theme preference syncs across devices
 - All data stored in MongoDB Atlas
 - Uncontrolled inputs used for better text visibility during editing

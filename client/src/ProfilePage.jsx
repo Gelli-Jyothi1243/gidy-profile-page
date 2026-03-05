@@ -205,6 +205,9 @@ export default function ProfilePage() {
     <div className="loading-container">
       <div className="spinner"></div>
       <p>Loading profile...</p>
+      <p style={{ fontSize: '14px', color: '#666', marginTop: '10px' }}>
+        First load may take 30-60 seconds (free tier backend waking up)
+      </p>
     </div>
   )
 
