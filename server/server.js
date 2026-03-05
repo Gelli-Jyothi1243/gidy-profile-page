@@ -13,6 +13,18 @@ mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI)
 
 const Profile = require("./models/Profile")
 
+// Root route - Welcome message
+app.get("/", (req, res) => {
+  res.json({
+    message: "Gidy Profile API",
+    status: "Running",
+    endpoints: {
+      getProfile: "GET /api/profile",
+      updateProfile: "PUT /api/profile/:id"
+    }
+  })
+})
+
 app.get("/api/profile", async (req,res)=>{
 const profile = await Profile.findOne()
 res.json(profile)

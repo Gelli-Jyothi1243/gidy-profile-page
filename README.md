@@ -4,8 +4,8 @@ A modern, feature-rich profile management system built with the MERN stack, show
 
 ## 🚀 Live Demo
 
-- **Frontend**: [Deployed on Vercel](your-vercel-url-here)
-- **Backend**: [Deployed on Render](your-render-url-here)
+- **Frontend**: https://gidy-profile-page.vercel.app
+- **Backend**: https://gidy-profile-backend-odl6.onrender.com
 
 ## 📦 Tech Stack
 
@@ -101,29 +101,9 @@ Not all skills are equal. A developer with "Expert" level React.js is fundamenta
 
 ---
 
-### 4. **Smart Two-Column Responsive Layout** 📐
 
-**Why this innovation?**
 
-Screen real estate is valuable. A single-column layout wastes space and requires excessive scrolling. This smart layout:
-- **Reduces Scrolling**: More content visible above the fold
-- **Improves Scannability**: Related sections grouped logically
-- **Maintains Balance**: Visual hierarchy guides the eye naturally
-- **Responsive Design**: Collapses to single column on mobile
-
-**Technical Implementation:**
-- CSS Grid for flexible two-column layout
-- Left column: Experience → Projects (career progression flow)
-- Right column: Certifications → Extracurricular (achievements flow)
-- Skills section spans full width (prominence for key information)
-- `align-items: start` prevents awkward stretching
-- Media queries for mobile responsiveness
-
-**User Impact:** Users can showcase more information efficiently, and viewers can scan profiles faster.
-
----
-
-### 5. **Interactive Education Timeline** 📚
+### 4. **Interactive Education Timeline** 📚
 
 **Why this innovation?**
 
@@ -151,8 +131,7 @@ These features weren't chosen randomly—they address real user pain points:
 1. **Dark Mode** → Accessibility & Comfort
 2. **Inline Editing** → Efficiency & User Experience
 3. **Skill Levels** → Information Clarity & Professional Presentation
-4. **Smart Layout** → Space Optimization & Scannability
-5. **Timeline** → Visual Storytelling & Engagement
+4. **Timeline** → Visual Storytelling & Engagement
 
 Together, they transform a basic profile page into a **modern, professional, and delightful user experience**.
 
@@ -270,20 +249,6 @@ gidy-profile-page/
 
 ---
 
-## 🎨 Key Features
-
-- ✅ **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
-- ✅ **Dark/Light Theme** - Toggle with persistent preference
-- ✅ **Real-Time Editing** - Inline editing with auto-save
-- ✅ **Skill Management** - Add, edit, delete skills with proficiency levels
-- ✅ **CRUD Operations** - Full create, read, update, delete for all sections
-- ✅ **Interactive Timeline** - Visual education history
-- ✅ **Smart Layout** - Two-column design for optimal space usage
-- ✅ **Smooth Animations** - Hover effects and transitions
-- ✅ **Auto-Save** - Never lose your changes
-- ✅ **MongoDB Integration** - Persistent data storage
-
----
 
 ## 🔧 API Endpoints
 
@@ -294,33 +259,13 @@ gidy-profile-page/
 
 ---
 
-## 🎯 Code Quality Highlights
 
-1. **Clean Architecture**: Modular components, clear separation of concerns
-2. **User Experience**: Intuitive interface with minimal friction
-3. **Performance**: Fast load times with Vite, optimized React rendering
-4. **Accessibility**: Semantic HTML, keyboard navigation support
-5. **Maintainability**: Well-documented code, consistent naming conventions
-6. **Error Handling**: Graceful error handling with user feedback
-7. **State Management**: Efficient React hooks usage
-
----
-
-## 📝 Technical Notes
-
-- **Uncontrolled Inputs**: Using `defaultValue` + `onInput` + `onBlur` for better text visibility during editing
-- **Theme Persistence**: Theme preference stored in MongoDB for cross-device consistency
-- **Empty Item Filtering**: All sections filter out empty items for clean display
-- **Temporary IDs**: New items use `_tempId` for tracking before database save
-- **Auto-Save Logic**: Saves on blur, card switch, or explicit save button click
-
----
 
 ## 👨‍💻 Developer
 
-Created by **[Your Name]** as part of the Gidy Full-Stack Developer Assessment.
+Created by Jyothi Gelli as part of the Gidy Full-Stack Developer Assessment.
 
-**Contact**: [your-email@example.com]
+**Contact**: [gellijyothi17@gmail.com]
 
 ---
 
@@ -336,3 +281,9 @@ This project is created for assessment purposes.
 - Lucide React for beautiful icons
 - MongoDB for flexible data storage
 - Vercel & Render for hosting platforms
+## 👨‍💻 Developer
+
+Created by **Jyothi Siva Naga Devi Gelli** as part of the Gidy Full-Stack Developer Assessment.
+
+**Contact**: gellijyothi17@gmail.com
+**GitHub**: https://github.com/Gelli-Jyothi1243
